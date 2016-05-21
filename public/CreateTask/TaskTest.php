@@ -1,15 +1,9 @@
 
 <?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php"); 
       require_once($root . "src/jsoniss.php");
-              
-       
-        $response = $_GET['jwt'];
-        
-        
-        var_dump($response);
-        
-        
-    $data = TokenIssuer::getInstance()->check(trim($response));
+      use src/Cache;
+    $jwt = 
+    $data = TokenIssuer::getInstance()->check(trim($_POST['jwt']));
     
     if($data['valid'] === TRUE && $data['type'] === 'c'){
     //do nothing. Continue page load.

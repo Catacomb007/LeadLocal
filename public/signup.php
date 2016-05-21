@@ -1,10 +1,10 @@
-<?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php"); ?>
+<?php include("../public/header.php");?>
 
 <div class="container-fluid">
     <div><h2>Create An Account</h2></div>
     <!--../src/AccountCreate.php-->
     
-    <form id="Create" action="src/AccountCreate.php" method="post">
+    <form id="Create" action="../src/AccountCreate.php" method="post">
         <input id="user" type="text" name="Username" placeholder="Username" required maxLength="50"/><br />
         <input id="pass" type="password" name="Password" placeholder="Password" required maxlength="100"/><br />
         <input id="confirm" type="password" placeholder="Confirm Password" required /><br />

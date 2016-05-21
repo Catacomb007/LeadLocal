@@ -2,8 +2,8 @@
     background-image: url("../img/indexContainerBG.jpg");
     background-color:aliceblue;
     background-position: center; 
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-repeat: no-repeat;　　//背景不重複 
+    background-attachment: fixed; 　　//背景固定  
     color: #F2F6FF;
 }
 body {

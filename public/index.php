@@ -1,11 +1,11 @@
-<?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php");  ?>
+<?php include("../public/header.php");?>
     
-    <div >
+  <div >
         <img class="bgIMG" src="../public/img/indexContainerBG.png" width="100%">
     </div>    
     <div  class="jumbotron">
       <div  class="container">
-        <h1 class="display-3">Welcome to LeadLocal</h1>
+        <h2 >Welcome to LeadLocal</h2>
         
             <br/>
             <p>We are your special tour guide agency.</p>
@@ -20,8 +20,12 @@
             <li>Introduce a best componion with you</li><br/>
            
         </ul>
-        
-      </div>
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		  <a href="CreateTask/TaskTest.php"><button type="button" class="btn btn-primary outline" >Lest's Begin Your First Task</button></a>
+	    </div>
+      </div >
+			
+	 
     </div>
 
    

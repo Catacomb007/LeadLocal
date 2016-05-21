@@ -1,4 +1,6 @@
-<?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php");  ?>
+
+
+ <?php include("../public/header.php");?>
     
 
     <div class="container">
@@ -6,11 +8,12 @@
 	<h3>Menu</h3>
     
     <ul class="list-group">
-		<li class="list-group-item"><a href="Login.php">Account <span class="glyphicon glyphicon-chevron-right"></span></a></li>
-		<li class="list-group-item"><a href="#">Setting <span class="glyphicon glyphicon-chevron-right"></span></a></li>
-		<li class="list-group-item"><a href="C_TaskManagement.php">Tasks<span class="glyphicon glyphicon-chevron-right"></span></a></li>
-		<li class="list-group-item"><a href="#">Contact</a></li>
-		<li class="list-group-item"><a href="#">Log out</a></li>
+		
+		
+		<li align="center" class="list-group-item"><a href="profile.php">Profile</a></li>
+		<li align="center" class="list-group-item"><a href="C_TaskManagement.php">TaskManagement</a></li>
+		<li align="center" class="list-group-item"><a href="contactus.php">Contact</a></li>
+		<li align="center" class="list-group-item"><span><a href="signup.php">&nbsp;SignUp&nbsp;</a></span><span><a href="login.php">&nbsp;LogIn&nbsp;</a></span></li>
   </ul>
 
  
@@ -19,5 +22,5 @@
    
 
       <hr>
-<?php include("../public/footer.php");?>
+
      
