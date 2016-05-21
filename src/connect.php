@@ -1,5 +1,6 @@
 
 <?php
+
 require_once("DBConnector.php");
 require_once("jsoniss.php");
 $db = DBConnector::getInstance();
@@ -19,6 +20,7 @@ if($baseuser === $id && $basepass === $hashedpass)
     $tk = TokenIssuer::getInstance();
     
     $jwt = $tk->issue($id, $type);
+    
     $jwt = trim($jwt);
     
     echo($jwt);

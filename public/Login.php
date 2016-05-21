@@ -1,48 +1,53 @@
 
-<?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php");  ?>
+<?php include("../public/header.php");?>
 
 
 <div class="container">
-     
-          <h2>Login Page</h2>
-               <div class="row">
-                <span class="col-sm-4 col-md-4 col-lg-4"></span>   
-                <div class="input-group col-xs-12 col-sm-4 col-md-4 col-lg-4">   
+    <br/>
+	<h2>Login Page</h2>
+	<hr/>
+	
+	<!-- 				old version								-->
+	
                
-                  <span class="col-sm-4 col-md-4 col-lg-4"></span>    
-                   </div>    
-                </div>   
                 
-               <form id="login" method="POST" action="../src/connect.php">
-                     <div class="row">
-						 <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4"></div>
-                     	<div class="input-group col-xs-8 col-sm-8 col-md-4 col-lg-4">
-							<h4><label for="username"> Username:&nbsp;</label> 
-                        <input id="username" type="text" name="name" required></h4>
-						 </div>
-						 <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4"></div>
-                     </div>
-                    <div class="row">
-                        <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4"></div>
-                        <div class="input-group col-xs-8 col-sm-8 col-md-4 col-lg-4">
-                        <h4><label for="password">Password:&nbsp;&nbsp;</label>
-                        <input id="password" type="password" name="pass" required></h4>
-                    </div>
-						<div class="col-xs-2 col-sm-2 col-md-4 col-lg-4"></div>
-                    </div>
-                    <br/>
-                    
-                    <div class="row">
-						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <button class="btn waves-effect btn-primary" id="loginBtn" type="submit" value="Log In"  data-loading-text="Loading...">Login</button>
-				    <hr/>			
+               
+<hr/>
+<!-- -->
+	<form id="login"  method="POST" action="../src/connect.php">
+ 
+                    <fieldset>
+                      
+
+                     
+                      
+                           
+
+                        <div class="form-group">
+							<labe for="username">  <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i>&nbsp;&nbsp;<span font-size="5px">User Name</span></span></labe>
+                            <div class="col-md-8">
+                                <input class="form-control" placeholder="Type your user name in here" id="username" type="text" name="name" required>
+                            </div>
                         </div>
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-                    </div>
-</form>
-</hr>
-    <div id="error"></div>
+
+                        <div class="form-group">
+						<label for="phone">	<span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-lock bigicon"></i>&nbsp;&nbsp;<span font-size="5px"> 
+							Password</span></span> </label>
+                            <div class="col-md-8">
+                                <input id="password" class="form-control" placeholder="Don't speak too lound of your passward"  type="password" name="pass" required>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <div class="col-md-12 text-center">
+                                
+								<button class="btn btn-primary outline" id="loginBtn" type="submit" value="Log In"  data-loading-text="Loading...">Login</button>
+                            </div>
+                        </div>
+			 <div id="error"></div>			
+	 </fieldset>
+	</form>
+
+ <!-- -->
 </div>
 <script>
     $(function () {
@@ -55,19 +60,18 @@
                 data: { "name": $('#username').val(), "pass": $('#password').val() },
                 success: function (callback) {
                     var jwt = callback.trim();
-                    console.log(jwt);
-                    console.log(callback);
-                    if (jwt == "Failed!") {
-                        $("#error").html("<p><h3>Authentication Failure</h3><br />The Username or Password was entered incorrectly<br /><small>Or maybe the server is down. Maybe.</small></p>");
-                    } else {
-                        if (localStorage.getItem("jwt") != null)
-                            localStorage.removeItem("jwt");
-
-                        localStorage.setItem("jwt", jwt);
-
-                        document.location.href = "index.php";
-                    }
-
+-                    console.log(jwt);
+-                    console.log(callback);
+-                    if (jwt == "Failed!") {
+-                        $("#error").html("<p><h3>Authentication Failure</h3><br />The Username or Password was entered incorrectly<br /><small>Or maybe the server is down. Maybe.</small></p>");
+-                    } else {
+-                        if (localStorage.getItem("jwt") != null)
+-                            localStorage.removeItem("jwt");
+-
+-                        localStorage.setItem("jwt", jwt);
+ 
+-                        document.location.href = "index.php";
+-                    }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(textStatus + ": " + errorThrown);

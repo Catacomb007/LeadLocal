@@ -1,5 +1,5 @@
 
-<?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php");  ?>
+<?php include("../public/header.php");?>
 <div class="container">
         <div id='content' class='row-fluid'>
              <div class='col-md-3'>

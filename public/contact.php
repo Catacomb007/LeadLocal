@@ -1,6 +1,6 @@
 
 
- <?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php");  ?>
+ <?php include("../public/header.php");?>
     <div >
         <img class="bgIMG" src="../public/img/indexContainerBG8.png" width="100%">
     </div>  
