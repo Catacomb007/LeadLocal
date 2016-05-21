@@ -1,6 +1,7 @@
 <?php
+
 include_once("Messages.php");
-require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectv1/vendor/autoload.php");
+require_once("../vendor/autoload.php");
 
 use \Firebase\JWT\JWT;
 class TokenIssuer {
