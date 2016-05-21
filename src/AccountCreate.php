@@ -8,7 +8,7 @@ $type = $_POST['type'];
 
        
 $valid = true;
- /*           
+         
 if ($user == null || $user.length == 0) {
     $valid = false;
 }
@@ -27,7 +27,7 @@ if ($pass.length < 8 || $pass.length > 100) {
 if (pass !== confirm) {                
     $valid = false;
 }
-*/
+
 $db = DBConnector::getInstance();
 $salt = base64_encode(openssl_random_pseudo_bytes(64, $strong));
 $salt = filter_var($salt, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -38,6 +38,5 @@ if ($valid){
     $numRow = $db->affectRows($sql);
     
 }
-echo var_dump($salt, $pass, $sql, $numRow);
 
 ?>

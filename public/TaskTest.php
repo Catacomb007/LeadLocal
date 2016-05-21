@@ -1,10 +1,9 @@
 
-<?php include("../public/header.php");?>
-<?php
+<?php include("../public/header.php");
       require_once("../src/jsoniss.php");
-      use src/Cache;
-    $jwt = 
-    $data = TokenIssuer::getInstance()->check(trim($_POST['jwt']));
+
+      $response = $_GET['jwt'];
+      $data = TokenIssuer::getInstance()->check(trim($response));
     
     if($data['valid'] === TRUE && $data['type'] === 'c'){
     //do nothing. Continue page load.
