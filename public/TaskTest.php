@@ -3,20 +3,20 @@
       require_once("../src/jsoniss.php");
 
       $response = $_GET['jwt'];
-      $data = TokenIssuer::getInstance()->check(trim($response));
+      $JWT = str_replace('"', "", $response);
+      $data = TokenIssuer::getInstance()->check(trim($JWT));
     
     if($data['valid'] === TRUE && $data['type'] === 'c'){
     //do nothing. Continue page load.
     } else {
-        #echo '<META HTTP-EQUIV="refresh" content="1;URL=../Login.php">';
-       # echo "<script type='text/javascript'>document.location.href='../Login.php';</script>";
+        echo '<META HTTP-EQUIV="refresh" content="1;URL=../Login.php">';
+        echo "<script type='text/javascript'>document.location.href='../Login.php';</script>";
     }
     
  ?>
 
 <div id="page"><!--TO BE REPLACED BY SERVER CONTENT--></div>
-<?php var_dump($data);
-        var_dump($_POST);?>
+
 <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
 <script src="picker.js"></script>
 <script>
@@ -148,4 +148,3 @@
     });
 </script>
 <script type="text/javascript" src="Script.js"></script>
-<?php require_once("../footer.php"); ?>

@@ -62,7 +62,8 @@
 	        </div>
             <script type="text/javascript">
                 var JWT = localStorage.getItem("jwt");
-                $("#jwt").val(JWT);
-                $("#postForm").ajaxSubmit({url: '../src/CacheManager.php', type: 'post'})
+                if(window.location.search == "")
+                    window.location.search = "?jwt=" + JWT;
+                
             </script>
         </header>

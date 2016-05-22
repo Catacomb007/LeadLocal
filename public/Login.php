@@ -11,7 +11,7 @@
 	
                
    
-				<form id="login"  method="POST" action="../src/connect.php">
+				<form id="login"  method="POST" action="#">
 					<fieldset>
 						
 						<div class="form-group">
@@ -63,19 +63,19 @@
                 url: "../src/connect.php",
                 data: { "name": $('#username').val(), "pass": $('#password').val() },
                 success: function (callback) {
-                var jwt = callback.slice(1, -1);
-                    console.log(jwt);
-                    console.log(callback);
-                    if (jwt == "Failed!") {
-                      $("#error").html("<p><h3>Authentication Failure</h3><br />The Username or Password was entered incorrectly<br /><small>Or maybe the server is down. Maybe.</small></p>");
-                    } else {
-                       if (localStorage.getItem("jwt") != null)
-                          localStorage.removeItem("jwt");
 
-                      localStorage.setItem("jwt", jwt);
- 
+                    var jwt = callback.trim();
+                    if (jwt == "Failed!") {
+                        $("#error").html("<p><h3>Authentication Failure</h3><br />The Username or Password was entered incorrectly<br /><small>Or maybe the server is down. Maybe.</small></p>");
+                    } else {
+                        if (localStorage.getItem("jwt") != null)
+                            localStorage.removeItem("jwt");
+
+                        localStorage.setItem("jwt", jwt);
+
                         document.location.href = "index.php";
-                    },
+                    } 
+                },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                     alert(textStatus + ": " + errorThrown);
                 }

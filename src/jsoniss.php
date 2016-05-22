@@ -54,10 +54,11 @@ class TokenIssuer {
         $creds = array('valid'=> NULL,
                 'user'=> NULL,
                 'type'=> NULL,
-                'debug'=> array() );
+                'error'=> null
+                );
             
         
-        $creds['debug'][0] = $jwt;
+        
         
         try {
             $decode = JWT::decode($jwt, $this->secret, array('HS256', 'HS512'));
@@ -65,21 +66,13 @@ class TokenIssuer {
         } catch(Exception $e){
                 
             $creds['valid'] = FALSE;
-            $creds['debug'][1] = $e;
-            $creds['debug'][2] = time();
-            $stuff = explode('.', $jwt);
-            $jsonlist = base64_decode($stuff[1]);
-            $array = json_decode($jsonlist, true);
-            $creds['debug'][3] = $array['exp'];
+            $creds['error'] = $e;
             return $creds;
         }
             
         $creds['valid'] = TRUE;
-        $creds['user'] = $decode['data']['user'];
-        $creds['type'] = $decode['data']['type'];
-        $creds['debug'][2] = $decode;
-        
-
+        $creds['user'] = $decode->data->user;
+        $creds['type'] = $decode->data->type;
 
         return $creds;
         }
