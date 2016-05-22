@@ -9,7 +9,7 @@
 				
 						$sql="SELECT * FROM task";
 						$result=$db->query($sql);
-						
+					
 						$value=sizeof($result);
 						
 						
@@ -27,16 +27,24 @@ $tasklist=$value;
 for($i=1;$i<=$tasklist;$i++)
 {
   $los=$result[$i-1]['los'];
+  $tourist=$result[$i-1]['tourist'];
+  $star_los=$result[$i-1]['los'];	
   echo	'<div class="row form-group" >
-							 <a class="ctask" href="E_ApplyTask.php?taskid='.$i.'">
-							 <span class="col-xs-4 col-sm-4 text-right"><i class="fa fa-square bigicon" data-toggle="tooltip" data-placement="top" title="Email"></i></span>
-                            <span class="col-xs-8 col-sm-8 taskFont text-left" font-size="5px" >Task&nbsp'.$i.'&nbsp Tasklevel:&nbsp'.$los.'</span> 
-							</a>
-                    </div>';
- 
-		 
-	
- 
+				 	 <a class="ctask" href="E_ApplyTask.php?taskid='.$i.'">
+							 
+							 <span class="col-xs-2 col-sm-2 text-right">
+							 <i class="fa fa-square fa-2x" data-toggle="tooltip" data-placement="top" title="task"></i>
+							 </span>
+                            <span class="col-xs-10 col-sm-10 text-left" style="font-size:18px" ><i>Task Tourist No.&nbsp'.$tourist.'&nbsp</i>';?> 
+							
+                    <?php for($j=0;$j<$star_los;$j++){
+			echo '<i class="fa fa-2x fa-star" style=" color:#898D9A;"></i>';
+						
+			 }?> 
+			 <?php echo  
+			 				'</span>
+			 			</a>
+		</div>';
 }
 ?>
 			  </ul> 

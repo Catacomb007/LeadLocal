@@ -1,15 +1,29 @@
 
-
+<?php session_start()?>
  <?php include("../public/header.php");?>
  <?php
 						 require_once('../src/DBConnector.php');
 						$db = DBConnector::getInstance();
-				
-						$sql="SELECT * FROM tourist WHERE username='Pizza Man'";
+						
+						$phone="Please add your contact info";
+						$intro="Please introduce yourself";
+						$sql="SELECT * FROM employee WHERE id=2";
 						$result=$db->query($sql);
-						$UserName=$result[0]['username'];
-						//$Email=$result[0]['email'];
-						//$Contact=$result[0]['contact'];
+						$name=$result[0]['username'];
+						$id=$result[0]['id'];
+						$email=$result[0]['email'];
+						$phone=$result[0]['contactInfo'];
+						$intro=$result[0]['introInfo'];
+						$type=$result[0]['type'];
+						$pic=$result[0]['pic'];
+						if($type="e")
+						{
+							$rating=$result[0]['rating'];
+							$_SESSION['loc']=$rating;
+							
+						}
+						
+					    	
 						
 ?>   
    <script>
@@ -18,7 +32,7 @@
 <div class="container">
 	<div class="row">
 		
-	<div class="col-md-12 lead"><h2>Profile&nbsp;&nbsp;<a href="profileEdit.php"><button class="btn btn-primary outline"> Edit</button></a></h2></div>
+	<div class="col-md-12 lead"><h2><? echo $name?>&nbsp;&nbsp;<a href="profileEdit.php"><button class="btn btn-primary outline"> Edit</button></a></h2></div>
 		
 		</div>
   <div class="row">
@@ -27,7 +41,7 @@
           <div class="row">
 			<div class="col-md-4 text-center">
               <img class="img-circle avatar avatar-original" style="-webkit-user-select:none; 
-              display:block; margin:auto;" src="img/userImg/pizza_man.jpg" height="150" width="150">
+              display:block; margin:auto;" src="<?php echo $pic; ?>" height="150" width="150">
             
 			  </div>
 			</div>
@@ -36,15 +50,55 @@
 	  		
 			  
 				   <div class="row form-group" >
-							 <span class="col-xs-4 col-sm-4 text-right"><i class="fa fa-envelope bigicon" data-toggle="tooltip" data-placement="top" title="Email">:&nbsp;&nbsp;</i></span>
-                            <span class="col-xs-8 col-sm-8 taskFont text-left" font-size="5px" line-height="50%">email@test.com</span>
+					   <span class="col-xs-2 col-sm-2"></span>
+					   <span class="col-xs-2 col-sm-2 text-right">
+						   <i class="fa fa-envelope fa-2x" data-toggle="tooltip" data-placement="top" title="Email">:</i>
+					   	</span>
+                        <span class="col-xs-7 col-sm-7 text-left" >
+							<b class="profileList"><?php echo (empty($email)?"Please add your email address": $email);?></b>
+					   </span>
+					   <span class="col-xs-offset-1 col-sm-offset-1"></span>
                     </div>
-		   <div class="row form-group">
-							 <span class="col-xs-4 col-md-1 text-right"> <i class="fa fa-phone-square bigicon" data-toggle="tooltip" data-placement="top" title="Contact">:&nbsp;&nbsp;</i></span>
-                            
-			   				<span class="col-xs-8 text-left taskFont" font-size="5px">604-1234-5678</span>
-                        </div>
-				  
+		   			<div class="row form-group">
+						   <span class="col-xs-2 col-sm-2"></span>
+					   <span class="col-xs-2 col-sm-2 text-right">
+							<i class="fa fa-phone-square fa-2x" data-toggle="tooltip" data-placement="top" title="Contact">:</i>
+			   			</span>
+			   			<span class="col-xs-7 col-sm-7 text-left" align="left">
+							<b class="profileList"><?php echo (empty($phone)?"Please introduce yourself": $phone)?> </b>
+						</span>
+						<span class="col-xs-offset-1 col-sm-offset-1"></span>
+                    </div>
+		  			<?php
+							if($type="e")
+							{
+								echo '<div class="row form-group">
+					   <span class="col-xs-2 col-sm-2"></span>
+					   <span class="col-xs-2 col-sm-2 text-right">
+							<i class="fa fa-star-o fa-2x" data-toggle="tooltip" data-placement="top" title="Contact">:</i>
+			   			</span>
+			   			<div class="col-xs-8 col-sm-8 text-left" align="left">
+							<b class="profileList">'; ?>
+		  				
+		  					<?php include("../src/rankStars.php");?>
+		  					<?php 
+								echo '</b>
+						</div>
+                    </div>
+					<span class="col-xs-offset-1 col-sm-offset-1"></span>';
+							}
+						
+		  			?>
+				  	<div class="row form-group">
+						   <span class="col-xs-2 col-sm-2"></span>
+					   <span class="col-xs-2 col-sm-2 text-right">
+							<i class="fa fa-coffee fa-2x" data-toggle="tooltip" data-placement="top" title="Contact">:</i>
+			   			</span>
+			   			<span class="col-xs-7 col-sm-7 text-left">
+							<b class="profileList"><?php echo (empty($intro)?"Please more about introduce yourself": $intro)?></b>
+						</span>
+						<span class="col-xs-offset-1 col-sm-offset-1"></span>
+                    </div>
 				 
 			
 </div>
@@ -79,7 +133,14 @@
     #center {
     text-align: center;
     }
-    
+    i.text-right
+	 {
+		 text-align:right;
+	 }
+	   i.text-center
+	   {
+		   text-align:center;
+	   }
     .bigicon {
         font-size: 35px;
         color: #000000;
@@ -88,6 +149,10 @@
 	.white {
 		color:#ffffff;
 	}
+	.profileList
+	   {
+		   font-size:15px;
+	   }
 </style>
 
      

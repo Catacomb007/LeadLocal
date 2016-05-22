@@ -10,6 +10,8 @@ CREATE TABLE tourist (
     type        VARCHAR(1) DEFAULT "c",
     email       VARCHAR(50),
     contactInfo VARCHAR(300),
+	introInfo   VARCHAR(1000),
+	pic			VARCHAR(300) DEFAULT "img/UserDefault.png",
     PRIMARY KEY (ID)
 );
 CREATE TABLE employee (
@@ -19,7 +21,9 @@ CREATE TABLE employee (
     type        VARCHAR(1) DEFAULT "e",
     email       VARCHAR(50),
     contactInfo VARCHAR(300),
-    rating      DECIMAL(4,3) NOT NULL,
+    rating      int NOT NULL DEFAULT 1,
+	introInfo   VARCHAR(1000),
+	pic			VARCHAR(300) DEFAULT "img/UserDefault.png",
     PRIMARY KEY (ID)
 );
 CREATE TABLE task (
@@ -44,8 +48,9 @@ CREATE TABLE tasklist (
     FOREIGN KEY (employee) REFERENCES employee(ID)
 );
 
-INSERT INTO employee(username, password, rating) VALUES ("admin", "1234", 3.5);
-INSERT INTO employee(username, password, rating) VALUES ("John Carter", "OF MARS", 0.2);
+INSERT INTO employee(username, password, rating) VALUES ("admin", "1234", 5);
+INSERT INTO employee(username, password, rating) VALUES ("John Carter", "OF MARS", 2);
+INSERT INTO employee(username, password) VALUES ("John Cene", "johncene");
 
 INSERT INTO tourist(username, password) VALUES ("Pizza Man", "littleKaiser");
 INSERT INTO tourist(username, password) VALUES ("Jack Arch", "words");
