@@ -26,6 +26,6 @@ if($baseuser === $id && $basepass === $hashedpass)
     echo($jwt);
 } else {
 
-   echo "Failed!";
+   echo "#Failed!#";
 }
 ?>

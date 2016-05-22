@@ -43,19 +43,19 @@
 	        <div class="header-limiter">
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 		            <a href="javascript:history.back()"><!--<i class="fa fa-mail-reply bigicon"></i>-->
-						<img class="img-responsive" src="../public/img/retina/arrow_left@2x.png" alt="back" /></a>
+						<i class="fa fa-3x fa-arrow-left" style=" color:#898D9A;"></i></a>
                 </div>
 		        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
 		            <div class="row">
 						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-							<a href="index.php"><img class="img-responsive" src="../public/img/retina/house@2x.png"></a>
+							<a href="index.php"><i class="fa fa-3x fa-home"  style=" color:#898D9A;" align="left"></i></a>
 						</div>
 			            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                            <a href="Login.php"><img class="img-responsive" src="../public/img/retina/star@2x.png" ></a>
+							<a href="Login.php"><i class="fa fa-3x fa-user"  style=" color:#898D9A;" align="left"></i></a>
 			            </div>	
 			            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">	
-			                <a href="menu.php" ><img  class="img-responsive"  src="../public/img/retina/photos_polaroid@2x.png" ><b class="caret"></b></a>
+			                <a href="menu.php" ><i class="fa fa-3x fa-th-list"  style=" color:#898D9A;" align="left"></i><b class="caret"></b></a>
                         </div>	
 		            </div>
                 </div>    

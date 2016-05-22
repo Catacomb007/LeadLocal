@@ -3,13 +3,13 @@
 <div class="container-fluid">
     <div><h2>Create An Account</h2></div>
     <!--../src/AccountCreate.php-->
-    
+    <!--
     <form id="Create" action="../src/AccountCreate.php" method="post">
         <input id="user" type="text" name="Username" placeholder="Username" required maxLength="50"/><br />
         <input id="pass" type="password" name="Password" placeholder="Password" required maxlength="100"/><br />
         <input id="confirm" type="password" placeholder="Confirm Password" required /><br />
         <fieldset >
-            <input id="typec" type="radio" name="Type" value="c" required/>Customer<br />
+            
             <input id="typee" type="radio" name="Type" value="e" />Employee<br />
         </fieldset>
 
@@ -17,6 +17,62 @@
         <button id="submit" type="submit">Submit</button>
         <div id="error"></div>
     </form>
+	-->
+	<form id="Create" action="../src/AccountCreate.php" method="post">
+		<fieldset>
+			<div class="form-group">
+				<labe for="username">
+				<span class="col-md-1 col-md-offset-2 text-center">
+					<i class="fa fa-user bigicon"></i>&nbsp;&nbsp;
+					<span font-size="5px">User Name</span>
+				</span>
+				</labe>
+           		<div class="col-md-8">
+					<input class="form-control" id="user" type="text" name="Username" placeholder="Username" required maxLength="50"/>
+           		</div>
+			</div>
+			<div class="form-group">
+				<label for="phone">
+				<span class="col-md-1 col-md-offset-2 text-center">
+					<i class="fa fa-lock bigicon"></i>&nbsp;&nbsp;
+					<span font-size="5px"> Password</span>
+				</span> 
+				</label>
+				<div class="col-md-8">
+					<input class="form-control" id="pass" type="password" name="Password" placeholder="Password" required maxlength="100"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="phone">
+				<span class="col-md-1 col-md-offset-2 text-center">
+					<i class="fa fa-lock bigicon"></i>&nbsp;&nbsp;
+					<span font-size="5px">Confirm Password</span>
+				</span> 
+				</label>
+				<div class="col-md-8">
+					<input class="form-control"  id="confirm" type="password" placeholder="Confirm Password" required maxlength="100" /		
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="phone">
+				<span class="col-md-1 col-md-offset-2 text-center">
+					<i class="fa fa-type bigicon"></i>&nbsp;&nbsp;
+					<span font-size="5px">Type</span>
+				</span> 
+				</label>
+				<div class="col-md-8">
+					<input id="typec" type="radio" name="Type" value="c" required/>Customer<br />
+					 <input id="typee" type="radio" name="Type" value="e" />Employee	
+				</div>
+			</div>	
+			<div class="form-group">
+				<div class="col-md-12 text-center">
+					<button class="btn btn-primary outline" id="submit" type="submit">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+		<div id="error"></div>
 </div>
 <script>
     $(function () {

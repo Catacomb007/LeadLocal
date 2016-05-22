@@ -18,7 +18,8 @@
 	
 			
 			<?php for($i=0;$i<$star_los;$i++){
-			echo '<img  src="../public/img/32X32_png/star.png" alt="star" height="20" width="20">';
+			echo '<i class="fa fa-2x fa-star" style=" color:#898D9A;"></i>';
+						
 			 }?>
 			
 	
