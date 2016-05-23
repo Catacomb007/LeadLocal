@@ -16,12 +16,14 @@ $sql = "INSERT INTO users(username, password, type, salt) VALUES('$user', '$pass
 if ($valid){
     $numRow = $db->affectRows($sql);
     
-    if ($data['type'] == 'c'){
-        $sql= "INSERT INTO tourist (username, password) VALUES($user, $pass);";
-   } else if($data['type'] == 'e'){
-        $sql= "INSERT INTO tourist (username, password) VALUES($user, $pass);";
+    if ($type == 'c'){
+        $sql= "INSERT INTO tourist(username, password) VALUES('$user', '$pass');";
+        
+   } else if($type == 'e'){
+        $sql= "INSERT INTO employee(username, password) VALUES('$user', '$pass');";
    }
    $numRow .= $db->affectRows($sql);
+   
 }
 
 ?>

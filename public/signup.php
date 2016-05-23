@@ -84,7 +84,7 @@
                     url: "../src/AccountCreate.php",
                     data: { 'user': $("#user").val().toString(), 'pass': $("#pass").val().toString(), 'confirm': $("#confirm").val().toString(), 'type': $("input:checked").val() },
                     success: function (data) {
-                       
+                        
                         document.location.href = "Login.php";
                     },
                     failure: function () {

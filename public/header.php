@@ -29,6 +29,8 @@
 	    <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>  
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cookie"  type="text/css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" href="../public/css/bootstrap-clockpicker.min.css" type="text/css">
 		<link rel="stylesheet" href="../public/css/bootstrap-formhelpers.css">
 		<link rel="stylesheet" href="../public/css/calender1.css" >

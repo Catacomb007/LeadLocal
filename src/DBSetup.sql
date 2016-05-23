@@ -11,7 +11,7 @@ CREATE TABLE tourist (
     email       VARCHAR(50),
     contactInfo VARCHAR(300),
 	introInfo   VARCHAR(1000),
-	pic			VARCHAR(300) DEFAULT "img/UserDefault.png",
+	pic	  		VARCHAR(300) DEFAULT "img/UserDefault.png",
     PRIMARY KEY (ID)
 );
 CREATE TABLE employee (
@@ -23,7 +23,7 @@ CREATE TABLE employee (
     contactInfo VARCHAR(300),
     rating      int NOT NULL DEFAULT 1,
 	introInfo   VARCHAR(1000),
-	pic			VARCHAR(300) DEFAULT "img/UserDefault.png",
+	pic	   		VARCHAR(300) DEFAULT "img/UserDefault.png",
     PRIMARY KEY (ID)
 );
 CREATE TABLE task (

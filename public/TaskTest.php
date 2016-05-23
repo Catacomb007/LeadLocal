@@ -147,7 +147,7 @@
             });
         });
 
-        $("#page").on("click", ".datepicker", function () {
+        $("#page").on("click", ".date-picker", function () {
             $(this).datepicker();
         });
 
