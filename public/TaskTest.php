@@ -128,8 +128,8 @@
                 url: "../src/TaskSubmit.php",
                 data: value,
                 success: function (data) {
-                    $("#page").html(data);
-                    //document.location.href = "payment.php";
+                    
+                    document.location.href = "payment.php";
                 },
                 failure: function (jqXHR, textStatus, error) {
                     console.log(textStatus + ": " + error);
