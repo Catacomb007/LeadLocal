@@ -1,7 +1,7 @@
 
-<?php session_start()?>
- <?php include("../public/header.php");?>
- <?php
+<?php session_start();
+ include("../public/header.php");
+ require("../src/jsoniss.php");
 						 require_once('../src/DBConnector.php');
 						$db = DBConnector::getInstance();
 						
@@ -13,23 +13,26 @@
 						$phone="Please add your contact info";
 						$intro="Please introduce yourself";
 
+                        $type = $data['type'];
+                        $name = $data['user'];
+
                         if ($data['type'] == 'c'){
-                            $sql= "SELECT * FROM tourist WHERE username = ". $data['user'];
+                            $sql= "SELECT * FROM tourist WHERE username = '$name';";
                         } else if($data['type'] == 'e'){
-                            $sql= "SELECT * FROM employee WHERE username = ". $data['user'];
+                            $sql= "SELECT * FROM employee WHERE username = '$name';";
                         } else {
                             die('Access Denied. Invalid Authorization');
                         }
 
 						
 						$result=$db->query($sql);
-
-						$name=$result[0]['username'];
+                        
+						
 						$id=$result[0]['id'];
 						$email=$result[0]['email'];
 						$phone=$result[0]['contactInfo'];
 						$intro=$result[0]['introInfo'];
-						$type=$result[0]['type'];
+						
 						$pic=$result[0]['pic'];
 						if($type="e")
 						{
@@ -40,13 +43,15 @@
 					    	
 						
 ?>   
-   <script>
-</script>	   
+     
    <br>
 <div class="container">
-	<div class="row">
+    <?php var_dump($data);
+        var_dump($result);
+ ?>
+    	<div class="row">
 		
-	<div class="col-md-12 lead"><h2><? echo $name?>&nbsp;&nbsp;<a href="profileEdit.php"><button class="btn btn-primary outline"> Edit</button></a></h2></div>
+	<div class="col-md-12 lead"><h2><?php echo $name?>&nbsp;&nbsp;<a href="profileEdit.php"><button class="btn btn-primary outline"> Edit</button></a></h2></div>
 		
 		</div>
   <div class="row">
