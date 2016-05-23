@@ -14,6 +14,7 @@
 
         <!-- JQuery CDN-->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<script type="text/javascript" src="../public/js/bootstrap-clockpicker.min.js"></script>
         <script src="http://malsup.github.com/jquery.form.js"></script> 
 

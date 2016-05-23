@@ -3,9 +3,6 @@ require_once("DBConnector.php");
 
 $taskID = $_POST['id'];
 
-
-       
-
  /*           
 if ($user == null || $user.length == 0) {
     $valid = false;
@@ -29,12 +26,6 @@ if (pass !== confirm) {
 $db = DBConnector::getInstance();
 
 
-
-
 $sql= "UPDATE task SET taken=1 WHERE ID = '$taskID'";
     $numRow = $db->affectRows($sql);
-    
-
-
-
 ?>

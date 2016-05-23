@@ -1,4 +1,4 @@
-
+/*
 $(function () {
     var lang = new Array;
     var loc = new Array;
@@ -121,3 +121,4 @@ $(function () {
         }
     });
 });
+*/

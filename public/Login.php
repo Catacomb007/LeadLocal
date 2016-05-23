@@ -65,7 +65,7 @@
                 success: function (callback) {
 
                     var jwt = callback.trim();
-                    if (jwt == "Failed!") {
+                    if (jwt.length <= 20) {
                         $("#error").html("<p><h3>Authentication Failure</h3><br />The Username or Password was entered incorrectly<br /><small>Or maybe the server is down. Maybe.</small></p>");
                     } else {
                         if (localStorage.getItem("jwt") != null)

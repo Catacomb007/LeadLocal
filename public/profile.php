@@ -5,10 +5,25 @@
 						 require_once('../src/DBConnector.php');
 						$db = DBConnector::getInstance();
 						
+                        $response = $_GET['jwt'];
+                        $JWT = str_replace('"', "", $response);
+                        $data = TokenIssuer::getInstance()->check(trim($JWT));
+
+
 						$phone="Please add your contact info";
 						$intro="Please introduce yourself";
-						$sql="SELECT * FROM employee WHERE id=2";
+
+                        if ($data['type'] == 'c'){
+                            $sql= "SELECT * FROM tourist WHERE username = ". $data['user'];
+                        } else if($data['type'] == 'e'){
+                            $sql= "SELECT * FROM employee WHERE username = ". $data['user'];
+                        } else {
+                            die('Access Denied. Invalid Authorization');
+                        }
+
+						
 						$result=$db->query($sql);
+
 						$name=$result[0]['username'];
 						$id=$result[0]['id'];
 						$email=$result[0]['email'];
@@ -20,7 +35,6 @@
 						{
 							$rating=$result[0]['rating'];
 							$_SESSION['loc']=$rating;
-							
 						}
 						
 					    	

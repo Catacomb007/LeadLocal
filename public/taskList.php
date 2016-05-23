@@ -2,17 +2,14 @@
 <?php session_start()?>
 
 
-<?php include("../public/header.php");?>
-     <?php
-						 require_once('../src/DBConnector.php');
-						$db = DBConnector::getInstance();
-				
-						$sql="SELECT * FROM task";
-						$result=$db->query($sql);
+<?php include("../public/header.php");
+ require_once('../src/DBConnector.php');
+$db = DBConnector::getInstance();
+
+$sql="SELECT * FROM task";
+$result=$db->query($sql);
 					
-						$value=sizeof($result);
-						
-						
+$value=sizeof($result);					
 ?> 
     <div  class="container">
 		<br/>
@@ -20,7 +17,7 @@
 		<hr/>
 	 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		 <ul class="list-group">
-   <?php
+<?php
 $tasklist=$value;
 //$tasklist= tasklist[].length
 
@@ -35,13 +32,13 @@ for($i=1;$i<=$tasklist;$i++)
 							 <span class="col-xs-2 col-sm-2 text-right">
 							 <i class="fa fa-square fa-2x" data-toggle="tooltip" data-placement="top" title="task"></i>
 							 </span>
-                            <span class="col-xs-10 col-sm-10 text-left" style="font-size:18px" ><i>Task Tourist No.&nbsp'.$tourist.'&nbsp</i>';?> 
+                            <span class="col-xs-10 col-sm-10 text-left" style="font-size:18px" ><i>Task Tourist No.&nbsp'.$tourist.'&nbsp</i>';
 							
-                    <?php for($j=0;$j<$star_los;$j++){
+                   for($j=0;$j<$star_los;$j++){
 			echo '<i class="fa fa-2x fa-star" style=" color:#898D9A;"></i>';
 						
-			 }?> 
-			 <?php echo  
+			
+			  echo
 			 				'</span>
 			 			</a>
 		</div>';

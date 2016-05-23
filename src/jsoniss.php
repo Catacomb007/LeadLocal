@@ -21,7 +21,7 @@ class TokenIssuer {
         return self::$instance;
     }
 
-    public function issue($id, $type) {
+    public function issue($user, $type) {
         if($_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR'] || ($_SERVER['REMOTE_ADDR'] != '127.0.0.1' && $_SERVER['REMOTE_ADDR'] != '::1'))
             die('Access Denied');
         else {
@@ -40,7 +40,7 @@ class TokenIssuer {
                 "nbf" => $notBefore,
                 "exp" => $expire, 
                 "data" => array(
-                    "user" => $id,
+                    "user" => $user,
                     "type" => $type
                     )
             );

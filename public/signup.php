@@ -82,21 +82,22 @@
                 $.ajax({
                     type: "POST",
                     url: "../src/AccountCreate.php",
-                    data: {'user': $("#user").val().toString(), 'pass': $("#pass").val().toString(), 'confirm': $("#confirm").val().toString(), 'type': $("input:checked").val()},
+                    data: { 'user': $("#user").val().toString(), 'pass': $("#pass").val().toString(), 'confirm': $("#confirm").val().toString(), 'type': $("input:checked").val() },
                     success: function (data) {
-                        $("#error").html(data);
+                       
+                        document.location.href = "Login.php";
                     },
                     failure: function () {
                         $("#error").html("<p>Account Creation Failed</p>");
                     }
-               });
-            
+                });
+
             }
         });
 
         function clear() {
             $("#error").html("");
-            
+
         };
 
         function validate() {

@@ -9,8 +9,8 @@
     if($data['valid'] === TRUE && $data['type'] === 'c'){
     //do nothing. Continue page load.
     } else {
-        echo '<META HTTP-EQUIV="refresh" content="1;URL=../Login.php">';
-        echo "<script type='text/javascript'>document.location.href='../Login.php';</script>";
+        echo '<META HTTP-EQUIV="refresh" content="1;URL=Login.php?fail=wrong-account">';
+        echo "<script type='text/javascript'>document.location.href='Login.php?fail=wrong-account';</script>";
     }
     
  ?>
@@ -27,9 +27,7 @@
         var tag = new Array;
         var detail = null;
         var star = null;
-
         var value = { message: "fail", "lang": lang, "loc": loc, "reserv": reserv, "tag": tag, "detail": detail, "star": star, "id": null };
-
         var place = null;
 
         function LoadPage(newPlace) {
@@ -47,14 +45,14 @@
         $("#page").on("click", ".fullbtn", function () {
             var which = $(this).attr("value");
             $("div#" + which + " img").toggle();
-            select = $(this).data("toggle");
+            var select = $(this).data("toggle");
             if (!select) {
                 select = true;
             } else {
                 select = false;
             }
             $(this).data("toggle", select);
-            console.log(select);
+
         });
 
         //Initial Load.
@@ -74,7 +72,6 @@
                             }
                         });
                         LoadPage(2);
-                        console.log(lang.toString());
                     }
                     break;
 
@@ -88,7 +85,6 @@
 
                         });
                         LoadPage(3);
-                        console.log(loc.toString());
                     }
                     break;
                 case 3:
@@ -98,7 +94,6 @@
                         var date = $('.date-picker').data("date");
                         reserv = { "begin": begin, "end": end, "date": date };
                         LoadPage(4);
-                        console.log(reserv.toString());
                     }
                     break;
                 case 4:
@@ -111,7 +106,6 @@
 
                         });
                         LoadPage(5);
-                        console.log(tag.toString());
                     }
                     break;
                 case 5:
@@ -119,23 +113,44 @@
                         detail = $("#comment").val();
 
                         LoadPage(6);
-                        console.log(detail.toString());
                     };
                     break;
                 case 6:
                     {
                         star = $(this).attr('id');
                         LoadPage(star);
-                        console.log(star.toString());
                     };
                     break;
             }
         });
-        $("#page").each(".clockpicker", function() {
-            $(this).clockpicker({
-				    donetext: 'Done'});
+
+        $("#page").on("click", ".confirm", function (e) {
+            e.preventDefault();
+            value['message'] = "Submitted";
+            $.ajax({
+                type: "POST",
+                url: "../src/TaskSubmit.php",
+                data: value,
+                success: function (data) {
+                    console.log(data);
+                    //document.location.href = "payment.php";
+                },
+                failure: function (jqXHR, textStatus, error) {
+                    console.log(textStatus + ": " + error);
+                }
+            });
         });
-        
+
+        $("#page").on("click", ".clockpicker", function () {
+            $(this).clockpicker({
+                donetext: 'Done'
+            });
+        });
+
+        $("#page").on("click", ".datepicker", function () {
+            $(this).datepicker();
+        });
+
         $("#page").on("click", ".prev", function () {
             if (place <= 1) {
                 window.location.href = "javascript:history.back()";
