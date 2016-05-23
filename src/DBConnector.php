@@ -127,6 +127,12 @@ class DBConnector {
         }
     }
 
+    public function quote($str){
+        if($conn == NULL){
+            DBConnector::getInstance();
+        }
+        return $this->conn->quote($str);
+    }
     /*
      * A query method
      */

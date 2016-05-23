@@ -21,14 +21,10 @@
 <script src="picker.js"></script>
 <script>
     $(function () {
-        var lang = new Array;
-        var loc = new Array;
-        var reserv = {};
-        var tag = new Array;
-        var detail = null;
-        var star = null;
-        var value = { message: "fail", "lang": lang, "loc": loc, "reserv": reserv, "tag": tag, "detail": detail, "star": star, "id": null };
-        var place = null;
+        
+        var name = "<?php echo $data['user'];?>";
+        var value = { message: "fail", lang: [], loc: [], reserv: {date:"",begin:"",end:""}, tag: [], detail: "", star: "", id: name};
+        var place;
 
         function LoadPage(newPlace) {
             $("#page").load("PageDoc.html .page" + newPlace, function (responseTxt, statusTxt, xhr) {
@@ -68,7 +64,7 @@
                         $(".fullbtn").each(function (i) {
                             var select = $(this).data("toggle");
                             if (Boolean(select)) {
-                                lang.push($(this).attr("value"));
+                                value.lang.push($(this).attr("value"));
                             }
                         });
                         LoadPage(2);
@@ -80,7 +76,7 @@
                         $(".fullbtn").each(function (i) {
                             var select = $(this).data("toggle");
                             if (Boolean(select)) {
-                                loc.push($(this).attr("value"));
+                                value.loc.push($(this).attr("value"));
                             };
 
                         });
@@ -91,8 +87,8 @@
                     {
                         var begin = $('#begin input').val();
                         var end = $('#end input').val();
-                        var date = $('.date-picker').data("date");
-                        reserv = { "begin": begin, "end": end, "date": date };
+                        var date = $('.date-picker').val();
+                        value.reserv = { "begin": begin, "end": end, "date": date };
                         LoadPage(4);
                     }
                     break;
@@ -101,7 +97,7 @@
                         $(".fullbtn").each(function (i) {
                             var select = $(this).data("toggle");
                             if (Boolean(select)) {
-                                tag.push($(this).attr("value"));
+                                value.tag.push($(this).attr("value"));
                             };
 
                         });
@@ -110,15 +106,15 @@
                     break;
                 case 5:
                     {
-                        detail = $("#comment").val();
+                        value.detail = $("#comment").val();
 
                         LoadPage(6);
                     };
                     break;
                 case 6:
                     {
-                        star = $(this).attr('id');
-                        LoadPage(star);
+                        value.star = $(this).attr('id');
+                        LoadPage(value.star);
                     };
                     break;
             }
@@ -132,7 +128,7 @@
                 url: "../src/TaskSubmit.php",
                 data: value,
                 success: function (data) {
-                    console.log(data);
+                    $("#page").html(data);
                     //document.location.href = "payment.php";
                 },
                 failure: function (jqXHR, textStatus, error) {
@@ -141,13 +137,13 @@
             });
         });
 
-        $("#page").on("click", ".clockpicker", function () {
+        $("#page").on("mouseenter", ".clockpicker", function () {
             $(this).clockpicker({
                 donetext: 'Done'
             });
         });
 
-        $("#page").on("click", ".date-picker", function () {
+        $("#page").on("mouseenter", ".date-picker", function () {
             $(this).datepicker();
         });
 
