@@ -10,7 +10,7 @@
 		  
 		  <button class="btn btn-primary outline">Create Task</button>
 		  <button class="btn btn-primary outline" >Check</button>
-		  <button class="btn btn-primary outline" >ManageTasks</button>
+		  <button class="btn btn-primary outline" >Manage Tasks</button>
 		  
 	  </div>
 			
