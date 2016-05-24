@@ -1,4 +1,4 @@
-<?php require_once($_SERVER['CONTEXT_DOCUMENT_ROOT']."projectV1/public/header.php");  ?>
+<?php include("../public/header.php");?>
 <div class="container-fluid">
     <div class="row">
 		<div class="col-xs-1 arrow" id="prev" style="display: flexbox;"><a href="TaskTest.php"><span class="glyphicon glyphicon-menu-left"></span></a></div>

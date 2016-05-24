@@ -233,7 +233,7 @@ td.etask
     }
     
     .bigicon {
-        font-size: 35px;
+        font-size: 20px;
         color: #000000;
 		margin: auto;
     }
@@ -242,5 +242,5 @@ td.etask
 	}
     .taskFont
 	{
-		font-size:20px;
+		font-size:16px;
 	}

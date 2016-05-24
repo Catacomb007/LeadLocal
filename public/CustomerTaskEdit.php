@@ -1,15 +1,17 @@
 
 
-<?php include("../public/header.php"); ?>
 <?php
+session_start();
+include("../public/header.php");
+require("../src/jsoniss.php");
 require_once('../src/DBConnector.php');
-require_once("../src/jsoniss.php");
-
 $db = DBConnector::getInstance();
 
-$sql = "SELECT * FROM task WHERE id=1";
+$taskID=$_SESSION['c_taskID'];
+
+$sql = "SELECT * FROM task WHERE id='$taskID'";
 $result = $db->query($sql);
-$id = $result[0]['ID'];
+
 $lang = $result[0]['lang'];
 $loc = $result[0]['loc'];
 $reserv=$result[0]['reserv'];
@@ -20,9 +22,6 @@ $tourist = $result[0]['tourist'];
 $type=$result[0]['type'];
 $pic = $result[0]['pic'];
 
-$sql2 = "SELECT * FROM tourist WHERE id=1";
-$touristDB = $db->query($sql2);
-$touristName=$touristDB[0]['username'];
 
 ?>   
 <script>
@@ -31,12 +30,12 @@ $touristName=$touristDB[0]['username'];
 
 <div class="container">
 
-    <div class="col-sm-12 col-xs-12 lead"><h2><?php echo $touristName; ?>'s task </h2></div>
+    <div class="col-sm-12 col-xs-12 lead"><h2><?php echo $tourist; ?>'s task </h2></div>
    
     <div class="col-sm-12">
     <div class="col-xs-12 col-sm-12">
 
-        <form id="profileEditer" class="form-horizontal" action="../src/ProfileEditer.php" method="post">
+        <form id="customerTaskEditer" class="form-horizontal" action="../src/ProfileEditer.php" method="post">
             <fieldset>
                
                    <div class="form-group">
@@ -124,11 +123,11 @@ $touristName=$touristDB[0]['username'];
 
 <script>
     $(function () {
-        $("#profileEditer button").click(function (event) {
+        $("#customerTaskEditer button").click(function (event) {
             event.preventDefault();
             $.ajax({
                 type: "POST",
-                url: "../src/ProfileEditer.php",
+                url: "../src/customerTaskEditor.php",
                 data: {
                     //'ID': $("#id").val().toString(),
                     'lang': $("#lang").val().toString(),
@@ -136,12 +135,11 @@ $touristName=$touristDB[0]['username'];
                     'reserv': $("#reserv").val().toString(),
                     'tag': $("#tag").val().toString(),
                     'detail': $("#detail").val().toString(),
-                    'touristName':"<?php echo $touristName ?>",
-                    'id': "<?php echo $id; ?>",
+                    'tourist':"<?php echo $tourist ?>",
                     'type': "<?php echo $type; ?>"
                 },
                 success: function (data) {
-                    document.location.href = "profile.php";
+                    document.location.href = "CustomerTask.php";
 
                 },
                 failure: function (jqXHR, textStatus, error) {

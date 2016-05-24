@@ -1,13 +1,17 @@
 
-<?php include("../public/header.php");
+<?php 
+      
+      include("../public/header.php");
       require_once("../src/jsoniss.php");
 
       $response = $_GET['jwt'];
       $JWT = str_replace('"', "", $response);
       $data = TokenIssuer::getInstance()->check(trim($JWT));
     
+      
     if($data['valid'] === TRUE && $data['type'] === 'c'){
     //do nothing. Continue page load.
+      
     } else {
         echo '<META HTTP-EQUIV="refresh" content="1;URL=Login.php?fail=wrong-account">';
         echo "<script type='text/javascript'>document.location.href='Login.php?fail=wrong-account';</script>";

@@ -1,7 +1,8 @@
 <?php
 require_once("DBConnector.php");
 
-$taskID = $_POST['id'];
+$task = $_POST['id'];
+$employee=$_POST['employee'];
 
  /*           
 if ($user == null || $user.length == 0) {
@@ -25,7 +26,10 @@ if (pass !== confirm) {
 */
 $db = DBConnector::getInstance();
 
-
-$sql= "UPDATE task SET taken=1 WHERE ID = '$taskID'";
+ 
+$sql= "INSERT INTO tasklist(task,employee) VALUES('$task','$employee');";
     $numRow = $db->affectRows($sql);
+ $sql="UPDATE task SET taken=1 WHERE ID = '$task'";
+  $numRow = $db->affectRows($sql);
+
 ?>
