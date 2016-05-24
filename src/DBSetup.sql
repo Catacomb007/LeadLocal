@@ -42,7 +42,7 @@ CREATE TABLE task (
 
 CREATE TABLE tasklist (
     task        int NOT NULL,
-    employee    int NOT NULL,
+    employee    VARCHAR(50) NOT NULL,
     PRIMARY KEY (task, employee),
     FOREIGN KEY (task) REFERENCES task(ID),
     FOREIGN KEY (employee) REFERENCES employee(username)

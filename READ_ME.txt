@@ -73,4 +73,7 @@ The registration and login function are the one of issue of our group. We are to
 complete this two important functions, and it make others work also stock.
 
 Frank:
-
+In this project I know that the what the users think is pretty different from what our team think.
+sometimes, we think out a good idea is probably not suitable for users. for our web app, we need to create 
+two different platforms for user and employee. therefore, we have very much work to do. and integration is
+not easy to accomplish.
