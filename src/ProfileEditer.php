@@ -33,10 +33,10 @@ $pic=$_POST['pic'];
  */
 $db = DBConnector::getInstance();
 
-if ($type = 'c') {
+if ($type == 'c') {
     $sql = "UPDATE tourist SET email='$email',contactInfo='$phone',introInfo='$intro',pic='$pic'  WHERE ID = '$id'";
     echo $id;
-} else if ($type = 'e') {
+} else if ($type == 'e') {
     $sql = "UPDATE employee SET email='$email',contactInfo='$phone',introInfo='$intro',pic='$pic'  WHERE ID = '$id'";
     echo $id;
 } else {

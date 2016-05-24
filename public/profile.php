@@ -94,7 +94,7 @@ if ($type == 'e') {
                     <i class="fa fa-star-o fa-2x" data-toggle="tooltip" data-placement="top" title="Contact">:</i>
                 </span>
                 <div class="col-xs-8 col-sm-8 text-left" align="left">
-                    <b class="profileList">';
+                    <b class="profileList">
                         <?php
                         if ($type == 'e') {
                             for ($i = 0; $i < $rating; $i++) {
