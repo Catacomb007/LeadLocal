@@ -48,18 +48,6 @@ CREATE TABLE tasklist (
     FOREIGN KEY (employee) REFERENCES employee(username)
 );
 
-INSERT INTO employee(username, password, rating) VALUES ("admin", "1234", 5);
-INSERT INTO employee(username, password, rating) VALUES ("John Carter", "OF MARS", 2);
-INSERT INTO employee(username, password) VALUES ("John Cene", "johncene");
-
-INSERT INTO tourist(username, password) VALUES ("Pizza Man", "littleKaiser");
-INSERT INTO tourist(username, password) VALUES ("Jack Arch", "words");
-
-INSERT INTO task(lang,loc,reserv,tag,detail,los,tourist) VALUES ("EN,CH","DT,BBY","10:30-11-30","#nightClub,#niaghtView","Test1!","2","Pizza Man");
-INSERT INTO task(lang,loc,reserv,tag,detail,los,tourist) VALUES ("CH, FR","DT,BBY","10:30-11-30","#nightClub,#nightView","Test 2  ","3","Pizza Man");
-INSERT INTO task(lang,loc,reserv,tag,detail,los,tourist) VALUES ("CH","DT,BBY","10:30-11-30","#nightClub,#nightView","Test3 ","1","Pizza Man");
-INSERT INTO task(lang,loc,reserv,tag,detail,los,tourist) VALUES ("JP,KR","DT,BBY","10:30-11-30","#nightClub,#nightView","Test3", "2","Pizza Man");
-
 CREATE TABLE users(
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(128) NOT NULL,
