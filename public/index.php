@@ -14,20 +14,20 @@
 
     <br/>
     <p>We are your special tour guide agency.</p>
-    <p>Give you the best experience during traveling in Vancouver</p>
+    <p>We give you the best experience while traveling in Vancouver</p>
 </p>
 
 <ul id="intro">
     <li>Quick to set up a tour guide for you</li><br/>
-    <li>No difficult process</li><br/>
-    <li>Experience the local culture</li><br/>
-    <li>Now the real life from local people</li><br/>
-    <li>Introduce a best companion with you</li><br/>
+    <li>No difficult processes</li><br/>
+    <li>Experience local culture.</li><br/>
+    <li>Find hidden gems from local people</li><br/>
+    <li>Get introduced to the best companion for you</li><br/>
 
 </ul>
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-        <a href="TaskTest.php"><button type="button" class="btn btn-primary outline" >Lest's Begin Your First Task</button><hr/></a>
+        <a href="TaskTest.php"><button type="button" class="btn btn-primary outline" >Let's Begin Your First Task</button><hr/></a>
     </div>
 </div>
 
@@ -47,7 +47,7 @@
                     <input class="form-control quickLogin" placeholder="User" id="username" type="text" name="name" required>
                 </div>
                 <div class="col-xs-5 quickLogin">
-                    <input id="password" class="form-control"  placeholder="password"  type="password" name="pass"  required>
+                    <input id="password" class="form-control"  placeholder="Pass"  type="password" name="pass"  required>
                 </div>
                 <div class="col-xs-offset-1 quickLogin"></div>
             </div>
@@ -111,11 +111,4 @@
 
     })
 
-</script>  
-
-
-
-
-
-<?php include("../public/footer.php"); ?>
-     
+</script>     
